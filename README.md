@@ -6,12 +6,6 @@ Read vehicle license plates with codeproject.ai (get it from https://www.codepro
 
 This integration adds an image processing entity where the state of the entity is the number of license plates found in a processed image. Information about the vehicle which has the license plate is provided in the entity attributes, and includes the license plate number and confidence (in a scale 0 to 1) in this prediction. For each vehicle an `platerecognizer.vehicle_detected` event is fired, containing the same information just listed. Additionally, statistics about your account usage are given in the `Statistics` attribute, including the number of `calls_remaining` out of your 2500 monthly available.
 
-If you have a paid plan that includes MMC (Make/Model/Colour) data you can received the orientation of the vehicle in the entity attributes.
-
-You can also forward the LPR results straight to [ParkPow](https://parkpow.com), a parking management software and sister-company to Plate Recognizer.
-
-If you have a local SDK licence, you can optionally specify the server address.
-
 **Note** this integration does NOT automatically process images, it is necessary to call the `image_processing.scan` service to trigger processing.
 
 ## Home Assistant setup
