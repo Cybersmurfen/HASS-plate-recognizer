@@ -1,7 +1,10 @@
 # HASS-plate-recognizer
-Read vehicle license plates with [Plate Recognizer ALPR](https://platerecognizer.com/) which offers free processing of 2500 images per month. You will need to create an account and get your API token.
+This is a fork of robmarkcole/HASS-plate-recognizer which utlizes the codeproject.ai local plate recognizer instead of ALPR at platerecognizer.com
 
-This integration adds an image processing entity where the state of the entity is the number of license plates found in a processed image. Information about the vehicle which has the license plate is provided in the entity attributes, and includes the license plate number, [region/country](http://docs.platerecognizer.com/#countries), vehicle type, and confidence (in a scale 0 to 1) in this prediction. For each vehicle an `platerecognizer.vehicle_detected` event is fired, containing the same information just listed. Additionally, statistics about your account usage are given in the `Statistics` attribute, including the number of `calls_remaining` out of your 2500 monthly available.
+
+Read vehicle license plates with codeproject.ai (get it from https://www.codeproject.com/)
+
+This integration adds an image processing entity where the state of the entity is the number of license plates found in a processed image. Information about the vehicle which has the license plate is provided in the entity attributes, and includes the license plate number and confidence (in a scale 0 to 1) in this prediction. For each vehicle an `platerecognizer.vehicle_detected` event is fired, containing the same information just listed. Additionally, statistics about your account usage are given in the `Statistics` attribute, including the number of `calls_remaining` out of your 2500 monthly available.
 
 If you have a paid plan that includes MMC (Make/Model/Colour) data you can received the orientation of the vehicle in the entity attributes.
 
@@ -16,9 +19,9 @@ Place the `custom_components` folder in your configuration directory (or add its
 
 ```yaml
 image_processing:
-  - platform: platerecognizer
-    api_token: your_token
-    regions:
+  - platform: platerecognizer_local
+    api_token: your_token (For now, any value)
+    regions: (Not used, just to not ruin the config flow until cleaned)
       - gb
       - ie
     watched_plates:
@@ -27,10 +30,10 @@ image_processing:
     save_file_folder: /config/images/platerecognizer/
     save_timestamped_file: True
     always_save_latest_file: True
-    mmc: True
-    detection_rule: strict
-    region: strict
-    server: http://yoururl:8080/v1/plate-reader/
+    mmc: True (For now, any value)
+    detection_rule: strict (For now, any value)
+    region: strict (For now, any value)
+    server: http://yoururl:8080/v1/plate-reader/ (URL To your local Codeproject site)
 
     source:
       - entity_id: camera.yours
