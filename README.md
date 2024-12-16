@@ -35,16 +35,16 @@ image_processing:
 Then, **restart** your Home Assistant
 
 Configuration variables:
-- **api_key**: Your api key.
-- **regions**: (Optional) A list of [regions/countries](http://docs.platerecognizer.com/?python#countries) to filter by. Note this may return fewer, but more specific predictions.
+- **api_key**: Not needed.
+- **regions**: Not needed.
 - **watched_plates**: (Optional) A list of number plates to watch for, which will identify a plate even if a couple of digits are incorrect in the prediction (fuzzy matching). If configured this adds an attribute to the entity with a boolean for each watched plate to indicate if it is detected.
 - **save_file_folder**: (Optional) The folder to save processed images to. Note that folder path should be added to [whitelist_external_dirs](https://www.home-assistant.io/docs/configuration/basic/)
 - **save_timestamped_file**: (Optional, default `False`, requires `save_file_folder` to be configured) Save the processed image with the time of detection in the filename.
 - **always_save_latest_file**: (Optional, default `False`, requires `save_file_folder` to be configured) Always save the last processed image, no matter there were detections or not.
-- **mmc**: (Optional, default `False`, requires a [paid plan](https://platerecognizer.com/pricing/) with the MMC (Make, Model, Colour) feature enabled.)  If enabled returns the orientation of the vehicle as a separate attribute containing Front/Rear/Unknown.
-- **detection_rule**: (Optional) If set to `strict`, the license plates that are detected outside a vehicle will be discarded.
-- **region**: (Optional) If set to `strict`, only accept the results that exactly match the templates of the specified region. For example, if the license plate of a region is 3 letters and 3 numbers, the value abc1234 will be discarded. For regions with vanity license plates (e.g. in us-ca), we do not recommend the use of Strict Mode. Otherwise, the engine will discard the vanity plates.
-- **server**: (Optional, requires a [paid plan](https://platerecognizer.com/pricing/) Provide a local server address to use [On-Premise SDK](https://docs.platerecognizer.com/#on-premise-sdk)
+- **mmc**: Not needed.
+- **detection_rule**: Not needed.
+- **region**: Not needed.
+- **server**: (Required - if vision is enabled in codeproject, use http://**codeproject local url**:**port**/v1/vision/alpr)
 
 
 - **source**: Must be a camera.
