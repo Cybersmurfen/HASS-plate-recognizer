@@ -49,6 +49,8 @@ Configuration variables:
 
 - **source**: Must be a camera.
 
+- Pictures below doesn't really match the forked component.
+
 <p align="center">
 <img src="https://github.com/robmarkcole/HASS-plate-recognizer/blob/main/docs/card.png" width="400">
 </p>
